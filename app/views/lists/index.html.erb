@@ -1,0 +1,18 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/7991582/pexels-photo-7991582.jpeg);">
+  <div class="container text-center">
+    <h1 class="text-light">Save any kind of movies</h1>
+    <p class="text-light">Classic</p>
+  </div>
+</div>
+<div class="container d-flex justify-content-end">
+  <%= link_to "Add a new list", new_list_path, class: "btn btn-success my-3 me-3 text-white" %>
+</div>
+<div class="container b-2 my-5">
+  <div class="row">
+    <% @lists.each do |list| %>
+      <div class="card-category mx-4 my-3" style="width: 18rem; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/200/500)">
+        <%= link_to list.name, list_path(list) %>
+      </div>
+    <% end %>
+  </div>
+</div>

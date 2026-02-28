@@ -1,0 +1,18 @@
+<div class="container py-5">
+  <h1>Add a movie to the list: <%= @list.name %></h1>
+
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.association :movie, collection: Movie.all, prompt: "Choose a movie" %>
+
+      <%= f.input :comment, placeholder: "Your comment" %>
+    </div>
+
+    <div class="form-actions mt-3">
+      <%= f.button :submit, "Save", class: "btn btn-primary" %>
+      <%= link_to "Back to the list", list_path(@list), class: "btn btn-outline-secondary" %>
+    </div>
+  <% end %>
+</div>
