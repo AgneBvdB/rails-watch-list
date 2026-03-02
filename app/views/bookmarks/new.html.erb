@@ -2,10 +2,9 @@
   <h1>Add a movie to the list: <%= @list.name %></h1>
 
   <%= simple_form_for [@list, @bookmark] do |f| %>
-    <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.association :movie, collection: Movie.all, prompt: "Choose a movie" %>
+      <%= f.association :movie, collection: Movie.all.order(:title), prompt: "Choose a movie" %>
 
       <%= f.input :comment, placeholder: "Your comment" %>
     </div>
