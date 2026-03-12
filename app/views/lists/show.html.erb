@@ -1,4 +1,8 @@
-<div class="banner " style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://picsum.photos/seed/picsum/500/2000);">
+<% if @list.photo.attached? %>
+  <div class="banner " style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @list.photo.key, crop: :fill %>');">
+<% else %>
+  <div class="banner " style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://picsum.photos/500/1200);">
+<% end %>
   <div class="container text-center">
     <h1 class="text-light"><%= @list.name %></h1>
   </div>
